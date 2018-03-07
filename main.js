@@ -13,7 +13,7 @@ function writeToDom(domString, domId){
 
 function domStringMaker(stringToPrint){
     var string =  "<h5>" + stringToPrint + "</h5>";
-    writeToDom(stringToPrint);
+    writeToDom(string, domId);
 }
 
 writeToDom("world", "challenge-1");
@@ -45,4 +45,87 @@ function howOldWillIBe(yearofBirth, yearInFutureOrPast){
     writeToDom("You were born this very year!", "challenge-1");
   }                        
 }
- howOldWillIBe(2000, 2000);
+ howOldWillIBe(2000, 2010);
+
+// Challenge #2: Simple Maths Test___________________________________________________
+// Create a function which checks a number for three different properties.
+
+// Is the number prime? 2, Is the number even?
+// Is the number a multiple of 10? Each should return either true or false, which should be given as an array.
+// Examples:
+
+var challenge2=7;  // ==> [true,  false, false] 
+var challenge2=(10); // ==> [false, true,  true]
+
+var challenge2Answer = [];
+
+function simpleMath (value){
+  primeNumber(value);
+  evenNumber(value);
+  multipleOfTen(value);
+  writeToDom(challenge2Answer, "challenge-2");
+}
+
+// check if number is prime
+function primeNumber (num){
+  // for(var i=2; i<num; i++){
+    if(num%2 && num%3){
+      answer3 = true;
+      challenge2Answer.push(answer3);
+      console.log(answer3);
+    } else{
+      challenge2Answer.push(false);
+    }
+  }
+
+//check if number is even
+function evenNumber (even){
+    if(even%2===0){
+      var answer1 = true;
+      challenge2Answer.push(answer1);
+    }else {
+      challenge2Answer.push(false);
+    }
+  }
+
+//check if number a multiple of 10
+function multipleOfTen(nums){
+  if(nums%10===0){
+    var answer2 = true;
+    challenge2Answer.push(answer2);
+  }else {
+      challenge2Answer.push(false);
+    }
+}
+
+simpleMath (challenge2);
+
+// Prime numbers are numbers that are bigger than one and cannot be divided evenly by any other number except 1 and itself.
+
+
+// Challenge #3: Unique Sum_____________________________________________________
+// // Given a list of integers values, your job is to return the sum of the values; however, if the same integer value appears multiple times in the list, you can only count it once in your sum.
+
+// // For example:
+
+// var challenge3=[ 1, 2, 3]; //6
+var challenge3=[ 1, 3, 8, 1, 8]; //12
+// var challenge3=[ -1, -1, 5, 2, -7];//-1
+
+// to remove duplicate numbers
+function uniqueArray(array){
+  var answer= array.filter(function(elem, index, array) {
+    return array.indexOf(elem) === index;
+  });
+  sumArray(answer);
+}
+
+// to sum numbers in array
+function sumArray(arrayToBeSummed) {
+  var summed = arrayToBeSummed.reduce(function(total, elem){
+   return total+elem;
+  });
+  writeToDom(summed,"challenge-3");
+}
+
+uniqueArray(challenge3);
