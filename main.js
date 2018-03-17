@@ -149,3 +149,27 @@ function challenge4(inputArray){
 writeToDom(filtered,"challenge-4");
 }
 
+// Challenge #5.______________________________________________________________
+// Sort by Last Char
+// Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
+
+// If two words have the same last letter, they returned array should show them in the order they appeared in the given string.
+
+challenge5("I love pie"); //["love", "pie", "I"]
+challenge5("bears live in the woods"); //["live", "the", "in", "bears", "woods"]
+function challenge5 (input){
+  var splitedString= input.split(" ");
+  splitedString.sort(function(word1, word2){
+    var lastCharacterWord1 = word1.charAt(word1.length-1).toLowerCase();
+    var lastCharacterWord2 = word2.charAt(word2.length-1).toLowerCase();
+    if(lastCharacterWord1>lastCharacterWord2){
+      return 1;
+    } else if (lastCharacterWord1<lastCharacterWord2){
+      return -1;
+    } else {
+      return 0;
+    }
+  }); //ends sort function
+  writeToDom(splitedString,"challenge-5");
+}
+
