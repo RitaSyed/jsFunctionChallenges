@@ -129,3 +129,23 @@ function sumArray(arrayToBeSummed) {
 }
 
 uniqueArray(challenge3);
+
+// Challenge #4.______________________________________________________________
+// Filter out the geese
+// Write a function that takes an array of strings as an argument and returns a filtered array containing the same elements but with the 'geese' removed.
+
+// The geese are any strings in the following array:
+
+geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+// Example:
+
+challenge4(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]) //["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+
+function challenge4(inputArray){
+  var filtered = inputArray.filter(function(item){
+  var checkGeese = !geese.includes(item);
+    return checkGeese;
+  })
+writeToDom(filtered,"challenge-4");
+}
+
